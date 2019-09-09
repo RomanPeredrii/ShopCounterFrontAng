@@ -1,0 +1,34 @@
+<title>ADMIN PAGE</title>
+<div class="body">
+    <header>
+        <h1>ADMIN PAGE</h1>
+    </header>
+    <app-nav></app-nav>
+    <div class="main">
+        <div class="options">
+            <input class="input" id="host" type="text" placeholder=" DB host" value="185.255.96.123" title="host" name="host" />
+            <input class="input" id="port" pattern="^[0-9]+$" placeholder=" port" value="3050" title="port" name="port" />
+            <input class="input" id="database" type="text" placeholder=" database" value="/var/lib/firebird/2.5/data/counter.fdb"
+                name="database" title="database" />
+            <input class="input" id="pageSize" type="text" placeholder=" page size" value="4096" name="pageSize" title="pageSize" />
+            <input class="input" id="user" type="text" placeholder=" username" value="U_VIEW" name="user" title="user" />
+            <input class="input" id="password" type="text" placeholder=" password" value="clv8bzg1" name="password"
+                title="password" />
+            <!-- <input id="host" type="text" placeholder="DB host" value="localhost" title="host" name="host" />
+            <input id="port" pattern="^[0-9]+$" placeholder="port" value="3050" title="port" name="port" />
+            <input id="database" type="text" placeholder="database" value="D:/JS/vvv/COUNTER.FDB" name="database"
+                title="database" />
+            <input id="pageSize" type="text" placeholder="page size" value="4096" name="pageSize" title="pageSize" />
+            <input id="user" type="text" placeholder="username" value="SYSDBA" name="user" title="user" />
+            <input id="password" type="text" placeholder="password" value="a2vvczib" name="password" title="password" /> -->
+            <input id="role" type="text" placeholder="role" name="role" title="role" autocomplete="off" />
+            <div class="departmentsList">departments</div>
+        </div>
+        <button id="addUser" [disabled]="addUserButton">ADD USER</button>
+        <button id="delUser" [disabled]="delUserButton">DEL USER</button>
+    </div>
+    <div class="messager"></div>
+    <footer>
+        <p>suported by roman.peredrii +380979170088</p>
+    </footer>
+</div>

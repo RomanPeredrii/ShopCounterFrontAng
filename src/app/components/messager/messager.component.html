@@ -1,0 +1,13 @@
+<div class="substrate" *ngIf="st.show">
+    <div class="messager" (click)= "ok()">
+        <div class="wrap">
+            <div [class]="st.messageType">
+            <!-- <img [src]="'assets/img/'+st.img"> -->
+                <p>{{st.messageType}}</p>  
+            </div>
+            <div class="description">
+            <p> {{st.message}}</p>
+            </div>
+        </div>
+    </div>
+</div>
