@@ -12,7 +12,7 @@ import  state  from '../../app-state';
 })
 export class StartComponent implements OnInit {
   userName: string = 'Admin';
-  pswd: string = 'Admin';  
+  pswd: string = 'Admin';
   st = state;
   constructor(
     private api: ApiService,
@@ -24,12 +24,12 @@ export class StartComponent implements OnInit {
   ngOnInit(): void {
   }
 async submit() {
-  console.log(this.st.acceptTerms);
- if (this.st.acceptTerms) await this.auth() 
+  // console.log(this.st.acceptTerms);
+ if (this.st.acceptTerms) await this.auth()
  else {this.st.messager = {
-   show: true, 
+   show: true,
    messageType: 'information',
-   message: 'you have to accept listed above conditions' 
+   message: 'you have to accept listed above conditions'
   }
 }}
   async auth() {
@@ -38,15 +38,21 @@ async submit() {
         userName: this.userName,
         pswd: this.pswd
       });
-      if (!result || result.error) throw error
+
+      if (!result || result.error)       throw error('user not exist');
 
       this.cookieService.set('token', `${result.cookie}`);
-      if (result.admin) { 
-        this.router.navigate([`/admin`]);      
+      if (result.admin) {
+        this.router.navigate([`/admin`]);
       }
     }
     catch (error) {
-
+      this.st.messager = {
+      show: true,
+      messageType: 'error',
+      message: error
+     }
+console.log(error);
     }
   }
 }
