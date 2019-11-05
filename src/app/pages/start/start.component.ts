@@ -3,7 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { error } from '@angular/compiler/src/util';
 import { ActivatedRoute, Router } from '@angular/router';
-import  state  from '../../app-state';
+import state from '../../app-state';
 
 @Component({
   selector: 'app-start',
@@ -23,36 +23,41 @@ export class StartComponent implements OnInit {
 
   ngOnInit(): void {
   }
-async submit() {
-  // console.log(this.st.acceptTerms);
- if (this.st.acceptTerms) await this.auth()
- else {this.st.messager = {
-   show: true,
-   messageType: 'information',
-   message: 'you have to accept listed above conditions'
+  async submit() {
+    // console.log(this.st.acceptTerms);
+    if (this.st.acceptTerms) await this.auth()
+    else {
+      this.st.messager = {
+        show: true,
+        messageType: 'information',
+        message: 'you have to accept listed above conditions'
+      }
+    }
   }
-}}
   async auth() {
     try {
+      // console.log({
+      //         userName: this.userName,
+      //         pswd: this.pswd
+      //       });
       const result: any = await this.api.login({
         userName: this.userName,
         pswd: this.pswd
       });
+      // console.log('result', result);
 
-      if (!result || result.error)       throw error('user not exist');
-
+      if (!result || result.error) { throw error('user not exist') }
       this.cookieService.set('token', `${result.cookie}`);
       if (result.admin) {
         this.router.navigate([`/admin`]);
-      }
-    }
-    catch (error) {
+      } else { this.router.navigate([`/work`]) };
+    } catch (error) {
       this.st.messager = {
-      show: true,
-      messageType: 'error',
-      message: error
-     }
-console.log(error);
+        show: true,
+        messageType: 'error',
+        message: error
+      }
+      // console.log(error);
     }
   }
 }

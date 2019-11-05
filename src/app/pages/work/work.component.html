@@ -1,1 +1,44 @@
-<app-nav></app-nav>
+<title>WORK PAGE</title>
+<div class="body">
+    <header>
+        <h1>WORK PAGE</h1>
+    </header>
+    <app-nav></app-nav>
+    <div class="left">
+        <!-- <p>CHOOSE DEPARTMENTS</p> -->
+        <div class="counters"> </div>
+        <div class="periodSetting">CHOOSE PERIOD
+            <!-- <p>start date</p> -->
+            <input id="timeStampS" type="date" value="" checked="checked" name="startDate" />
+            <!-- <p>finish date</p> -->
+            <input id="timeStampF" type="date" value="" checked="checked" name="finishDate" />
+        </div>
+        <div class="intervalSetting"></div>
+        <div class="sendRequest">
+            <button id="pie" value="pie"></button>
+            <button id="bar" value="bar"></button>
+            <button id="line" value="line"></button>
+        </div><br/>
+        <div class="table">
+            <table id="data">
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="right">
+        <div class="guide">
+            <!-- <p>GUIDE
+                <ol>
+                    <li>choose departments</li><br/>
+                    <li>choose period by set start and finish dates</li><br/>
+                    <li>set interval of display data from DB</li><br/>
+                    <li>push button according to required type of cart</li>
+                </ol>
+            </p> -->
+        </div>
+        <div class="canv">
+            <canvas id="chartFromDB"></canvas>
+        </div>
+    </div>
+    <div class="preloader"></div>
+    <div class="substrate"></div>

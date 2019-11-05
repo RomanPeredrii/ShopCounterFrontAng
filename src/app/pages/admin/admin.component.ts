@@ -12,14 +12,21 @@ import  state  from '../../app-state';
 })
 export class AdminComponent implements OnInit {
 
-  addUserButton: boolean = true;
-  delUserButton: boolean = true;
-  host: string = '185.255.96.123';
-  port: string = '3050';
-  database: string = '/var/lib/firebird/2.5/data/counter.fdb';
-  user: string = 'U_VIEW';
-  password: string = 'clv8bzg1';
-  departmetsList: Array <string> = []
+  addUserButton: boolean = Boolean(true);
+  delUserButton: boolean = Boolean(true);
+  newUserHide: boolean = Boolean(true);
+  newUserPasswordHide: boolean = Boolean(true);
+  departmentsListHide: boolean = Boolean(true);
+  host: string = String('185.255.96.123'); // = String('185.255.96.123');
+  port: string = String('3050'); // = String('3050');
+  database: string = String('/var/lib/firebird/2.5/data/counter.fdb'); // = String('/var/lib/firebird/2.5/data/counter.fdb');
+  user: string = String('U_VIEW');// = String('U_VIEW');
+  password: string = String('clv8bzg1'); // = String('clv8bzg1');
+  newUser: string = String('');
+  newUserPassword: string = String('');
+  delUser: string = String('');
+  departmetsList: Array <string> = [];
+  point: string = String('');
   st = state;
 
   constructor(
@@ -32,6 +39,35 @@ export class AdminComponent implements OnInit {
 ngOnInit() {
   }
 
+async addUser() {
+  console.log('ADD');
+}
+
+checkAdminValues(): boolean {
+  // console.log(Boolean(this.host.trim() && this.port.trim() && this.database && this.user && this.password));
+  return Boolean(this.host.trim() && this.port.trim() && this.database.trim() && this.user.trim() && this.password.trim());
+}
+
+checkNewUserValues(): boolean {
+  //console.log(Boolean(this.checkAdminValues() && this.newUserPassword && this.newUser));
+  return Boolean(this.checkAdminValues() && this.newUser.trim() && this.newUserPassword.trim());
+}
+
+checkNewUsername(): boolean {
+  // console.log(Boolean(this.checkAdminValues() && this.newUserPassword && this.newUser));
+  return Boolean(this.checkAdminValues() && this.newUser.trim());
+}
+
+checkDelUserValues(): boolean  {{
+  // console.log(Boolean(this.checkAdminValues() && this.newUserPassword && this.newUser));
+  return Boolean(this.checkAdminValues() && this.delUser.trim());
+}}
+
+makeCheckedList(event) {
+  console.log("List here", event);
+}
+
+
 async getCountersList() {
   console.log({
     host: this.host,
@@ -43,6 +79,7 @@ async getCountersList() {
   });
 
   this.api.log();
+
   let result: any = await this.api.countersList({
   host: this.host,
   port: this.port,
@@ -52,9 +89,9 @@ async getCountersList() {
   getDepProd: true
 });
 
-console.log(Object.entries(result));
+ console.log(Object.entries(result));
 this.departmetsList = Object.values(result);
-console.log(this.departmetsList);
+// console.log(this.departmetsList);
 }
 
 }

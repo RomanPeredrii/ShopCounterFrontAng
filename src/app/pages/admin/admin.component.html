@@ -6,26 +6,33 @@
     <app-nav></app-nav>
     <div class="main">
         <div class="options">
-            <input type="text" placeholder=" DB host" [(ngModel)]="host" title="host"/>
-            <input pattern="^[0-9]+$" placeholder=" port" [(ngModel)]="port" title="port"/>
-            <input type="text" placeholder=" database" [(ngModel)]="database" title="database"/>
-            <input type="text" placeholder=" username" [(ngModel)]="user" title="username"/>
-            <input type="text" placeholder=" password" [(ngModel)]="password" title="password" />
-            <div class="departmentsList" (click)="getCountersList()" > <div *ngIf="departmetsList.length === 0">departments</div>
-            <table>
-                <tr *ngFor= "let point of departmetsList" >
-                    <td>
-                        <input type="checkbox" [value]="point" />
-                    </td>
-                    <td>
-                        <label> {{point}}</label>
-                    </td>
-                </tr>
-            </table>
-            </div>    
+            <input type="text" placeholder=" DB host" [(ngModel)]="host" (keyup)="checkAdminValues()" (click)="checkAdminValues()" title="host" />
+            <input pattern="^[0-9]+$" placeholder=" port" [(ngModel)]="port" (keyup)="checkAdminValues()" (click)="checkAdminValues()" title="port" />
+            <input type="text" placeholder=" database" [(ngModel)]="database" (keyup)="checkAdminValues()" (click)="checkAdminValues()" title="database" />
+            <input type="text" placeholder=" username" [(ngModel)]="user" (keyup)="checkAdminValues()" (click)="checkAdminValues()" title="username" />
+            <input type="text" placeholder=" password" [(ngModel)]="password" (keyup)="checkAdminValues()" (click)="checkAdminValues()" title="password" />
+            <input type="text" placeholder=" new user" [hidden]="!checkAdminValues()" [(ngModel)]="newUser" (keyup)="checkNewUsername()" (click)="checkNewUsername()" title="new user" />
+            <input type="text" placeholder=" new user password" [hidden]="!checkNewUsername()" [(ngModel)]="newUserPassword" (keyup)="checkNewUserValues($event)" (click)="checkNewUserValues()" title="new user password" />
+            <div class="departmentsList" [hidden]="!checkNewUserValues()" (mouseup)="getCountersList()">
+                <div *ngIf="departmetsList.length === 0">departments</div>
+                <table>
+                    <tr *ngFor="let point of departmetsList">
+                        <td>
+                            <input type="checkbox" [value]="point" (mouseup)="makeCheckedList()" />
+                        </td>
+                        <td>
+                            <label> {{point}}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <button id="addUser" [disabled]="!checkNewUsername()" (click)="addUser()">ADD USER</button>
+
+            <input type="text" placeholder=" del user" [hidden]="checkNewUsername()" [(ngModel)]="delUser" title="del user username" />
+            <!-- <button id="addUser" [disabled]="addUserButton" (click)="addUser()">ADD USER</button> -->
+            <button id="delUser" [disabled]="!checkDelUserValues()">DEL USER</button>
         </div>
-        <button id="addUser" [disabled]="addUserButton">ADD USER</button>
-        <button id="delUser" [disabled]="delUserButton">DEL USER</button>
     </div>
     <div class="messager"></div>
     <footer>

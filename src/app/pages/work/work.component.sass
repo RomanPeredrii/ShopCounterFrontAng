@@ -1,0 +1,203 @@
+.left
+  width: 15%
+  min-width: 20em
+
+  p
+    font-size: 16px
+    font-weight: bold
+    margin-bottom: 0
+
+.counters
+  padding: 0.5em
+  margin-top: 0.5em
+  margin-bottom: 1em
+  border: 0
+
+.periodSetting
+  display: none
+  font-size: 16px
+  font-weight: bold
+
+  p
+    margin: 0.5em
+    font-weight: normal
+
+  input
+    padding: 0.5rem 0.75rem
+    font-size: 1rem
+    line-height: 1.25
+    color: #464a4c
+    background-color: #fff
+    background-image: none
+    -webkit-background-clip: padding-box
+    background-clip: padding-box
+    border: 0
+
+.intervalSetting
+  display: none
+  margin-top: 1em
+  margin-bottom: 1em
+
+.date
+  margin-top: 1em
+  font-size: 16px
+
+.right
+  width: 80%
+  min-width: 20em
+
+.guide
+  font-size: 16px
+
+.canv
+  height: 100%
+  margin: 1em
+
+canvas
+  margin: 1em
+  display: inline-block
+
+.choosePeriod
+  font-size: 16px
+  font-weight: bold
+
+.periodSet
+  display: inline-block
+  min-width: 4em
+
+.sendRequest
+  display: none
+
+#piex
+  color: #fff
+  background-color: #0275d8
+  border-color: #0275d8
+  font-weight: normal
+  line-height: 1.25
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  border: 1px solid transparent
+  font-size: 16px
+  border-radius: 0.25rem
+
+input:focus
+  background-color: #fafabf
+
+#periodSet
+  font-size: 16px
+  margin-top: 1em
+  display: inline-block
+
+.table
+  display: none
+  border-collapse: collapse
+  text-align: left
+  margin-bottom: 20px
+  width: 20em
+  max-height: 20em
+  font-size: 15px
+  color: #000000
+  overflow-y: auto
+
+tbody tr
+  font-weight: normal
+  background-color: #ffffff
+  width: 100%
+
+  &:nth-child(even)
+    background-color: #f3f3f3
+
+  &:hover
+    background-color: #e0e0e0
+
+td
+  padding: 9px 10px
+  border-left: #d7d7d7 1px solid
+  border-top: #d7d7d7 1px solid
+  border-bottom: #d7d7d7 1px solid
+  line-height: 20px
+
+tr td:first-child
+  border-left: 0
+
+\::-webkit-scrollbar
+  width: 3px
+
+\::-webkit-scrollbar-track
+  background: #ffffff
+
+\::-webkit-scrollbar-thumb
+  background: #888888
+  border-radius: 3px
+
+  &:hover
+    background: #2e2e2e
+
+\::-webkit-calendar-picker-indicator
+  background: inherit
+  color: #2e2e2e
+
+\::-webkit-inner-spin-button, ::-webkit-clear-button
+  display: none
+
+#pie
+  display: none
+  outline: none
+  margin: 1em
+  width: 3em
+  height: 3em
+  border: 1px solid transparent
+  border-radius: 0.5em
+  background-color: #0275aa
+  border-color: #0275d8
+//   background-image: url('../img/pieW.png')
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: 2em, 2em
+
+#bar
+  display: none
+  outline: none
+  margin: 1em
+  width: 3em
+  height: 3em
+  border-radius: 0.5em
+  background-color: #0275aa
+  border-color: #0275d8
+//   background-image: url('../img/bar-graph-icon-11.jpg')
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: 2em, 2em
+
+#line
+  display: none
+  outline: none
+  margin: 1em
+  width: 3em
+  height: 3em
+  border-radius: 0.5em
+  background-color: #0275aa
+  border-color: #0275d8
+//   background-image: url('../img/line-graph-icon-13.jpg')
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: 2em, 2em
+
+.typeOfChart
+  display: none
+  text-align: center
+
+.preloader
+  display: none
+  height: 100%
+  width: 100%
+  margin: 0
+  padding: 0
+  position: fixed
+  left: 0
+  top: 0
