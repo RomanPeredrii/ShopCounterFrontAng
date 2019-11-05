@@ -36,17 +36,17 @@ export class StartComponent implements OnInit {
   }
   async auth() {
     try {
-      // console.log({
-      //         userName: this.userName,
-      //         pswd: this.pswd
-      //       });
+      console.log({
+              userName: this.userName,
+              pswd: this.pswd
+            });
       const result: any = await this.api.login({
         userName: this.userName,
         pswd: this.pswd
       });
-      // console.log('result', result);
+      console.log('result', result);
 
-      if (!result || result.error) { throw error('user not exist') }
+      if (!result || result.error) { throw error('user not exist')}
       this.cookieService.set('token', `${result.cookie}`);
       if (result.admin) {
         this.router.navigate([`/admin`]);
